@@ -1,5 +1,5 @@
-= CCNA
-== Switching
+= CCNA =
+== Switching ==
 * VTP
 * STP
 * CDP
@@ -9,5 +9,5 @@
 * interfaces
 * telnet/ssh configuration
 
-== Routing
+== Routing ==
 * Static route
