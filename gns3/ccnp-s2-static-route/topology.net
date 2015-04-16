@@ -1,0 +1,69 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[3745]]
+        image = /mnt/hdd/sda6/Learning/@HAND/CCNP/Materials/IOS/c3745-adventerprisek9-mz.124-25d.image
+        idlepc = 0x60aa1da0
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 3745
+        console = 2104
+        aux = 2504
+        cnfg = configs/R1.cfg
+        wic0/0 = WIC-2T
+        s0/1 = R2 s0/0
+        f0/0 = nio_tap:tap0
+        x = -181.0
+        y = 55.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3745
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R1 s0/1
+        s0/1 = R3 s0/1
+        x = -14.0
+        y = -92.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3745
+        console = 2103
+        aux = 2503
+        cnfg = configs/R3.cfg
+        wic0/0 = WIC-2T
+        s0/1 = R2 s0/1
+        x = 170.0
+        y = 61.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "linux tap0"
+        x = -357.0
+        y = -86.5
+        color = "#313739"
+    [[NOTE 2]]
+        text = "Static route"
+        x = 162.0
+        y = 111.5
+        color = "#313739"
+    [[NOTE 3]]
+        text = "Static route"
+        x = -26.0
+        y = -139.5
+        color = "#313739"
+    [[NOTE 4]]
+        text = "Basic config\nStatic route"
+        x = -194.0
+        y = 102.5
+        color = "#313739"
+    [[Cloud C1]]
+        x = -399.5
+        y = -113.0
+        z = 1.0
+        connections = R1:f0/0:nio_tap:tap0
