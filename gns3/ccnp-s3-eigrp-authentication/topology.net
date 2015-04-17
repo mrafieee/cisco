@@ -1,0 +1,38 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[3745]]
+        image = /mnt/hdd/sda6/Learning/@HAND/CCNP/Materials/IOS/c3745-adventerprisek9-mz.124-25d.image
+        idlepc = 0x60aa1da0
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 3745
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        wic0/0 = WIC-1T
+        s0/0 = R2 s0/0
+        x = -302.0
+        y = -50.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3745
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        wic0/0 = WIC-1T
+        s0/0 = R1 s0/0
+        x = -14.0
+        y = -41.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[NOTE 1]]
+        text = "EIGRP Authentication"
+        x = -205.0
+        y = 26.5
+        color = "#313739"
