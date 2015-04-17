@@ -1,0 +1,107 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[3745]]
+        image = /mnt/hdd/sda6/Learning/@HAND/CCNP/Materials/IOS/c3745-adventerprisek9-mz.124-25d.image
+        idlepc = 0x60aa1da0
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 3745
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/0
+        s0/1 = R3 s0/1
+        f0/0 = nio_tap:tap0
+        x = -225.0
+        y = -85.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3745
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R1 s0/0
+        s0/1 = R3 s0/0
+        x = 128.0
+        y = -78.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3745
+        console = 2103
+        aux = 2503
+        cnfg = configs/R3.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/1
+        s0/1 = R1 s0/1
+        x = -28.0
+        y = 123.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[NOTE 1]]
+        text = "DSU"
+        x = -201.0
+        y = -37.5
+        color = "#313739"
+    [[NOTE 2]]
+        text = "DSU"
+        x = 142.0
+        y = -26.5
+        color = "#313739"
+    [[NOTE 3]]
+        text = "DSU"
+        x = 87.0
+        y = -80.5
+        color = "#313739"
+    [[NOTE 4]]
+        text = "* Hello/Hold times 2/6\n* Authentication\n* Metric modification\n* Passive interface\n* R1/R3 set to static neighbor"
+        x = -419.0
+        y = 10.5
+        color = "#313739"
+    [[NOTE 5]]
+        text = "Auth with 5 min life time"
+        x = -117.0
+        y = -71.5
+        color = "#313739"
+    [[NOTE 6]]
+        text = "lo0:172.16.10.1/32"
+        x = -70.0
+        y = 170.5
+        color = "#313739"
+    [[NOTE 7]]
+        text = "20.20.20.0/30"
+        x = 41.0
+        y = 27.5
+        color = "#313739"
+    [[NOTE 8]]
+        text = "10.10.10.0/30"
+        x = -151.0
+        y = 38.5
+        color = "#313739"
+    [[NOTE 9]]
+        text = "30.30.30.0/30"
+        x = -65.0
+        y = -92.5
+        color = "#313739"
+    [[NOTE 10]]
+        text = "lo0:192.168.200.1/24"
+        x = 201.0
+        y = -81.5
+        color = "#313739"
+    [[NOTE 11]]
+        text = "192.168.100.2"
+        x = -429.0
+        y = -174.5
+        color = "#313739"
+    [[Cloud C1]]
+        x = -457.5
+        y = -198.0
+        z = 1.0
+        connections = R1:f0/0:nio_tap:tap0
