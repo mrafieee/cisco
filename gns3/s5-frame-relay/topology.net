@@ -1,0 +1,106 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[3745]]
+        image = /mnt/hdd/sda6/Learning/@HAND/CCNP/Materials/IOS/c3745-adventerprisek9-mz.124-25d.image
+        idlepc = 0x60aa1da0
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        model = 3745
+        console = 2104
+        aux = 2504
+        cnfg = configs/R4.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR3 4
+        x = 96.0
+        y = 73.0
+        z = 1.0
+    [[ROUTER R1]]
+        model = 3745
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR3 1
+        x = 7.0
+        y = -225.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3745
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR3 2
+        x = -325.0
+        y = 74.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3745
+        console = 2103
+        aux = 2503
+        cnfg = configs/R3.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR3 3
+        x = -112.0
+        y = 89.0
+        z = 1.0
+    [[FRSW FR3]]
+        1:102 = 2:102
+        1:103 = 3:103
+        1:104 = 4:104
+        2:102 = 1:102
+        3:103 = 1:103
+        4:104 = 1:104
+        1 = R1 s0/0
+        2 = R2 s0/0
+        3 = R3 s0/0
+        4 = R4 s0/0
+        x = -105.5
+        y = -75.5
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "lo0: 192.168.100.1/30"
+        x = 50.0
+        y = 122.5
+        color = "#313739"
+    [[NOTE 2]]
+        text = "lo0: 172.20.90.1/16"
+        x = -159.0
+        y = 135.5
+        color = "#313739"
+    [[NOTE 3]]
+        text = "lo0:192.168.10.1/30"
+        x = -373.0
+        y = 119.5
+        color = "#313739"
+    [[NOTE 4]]
+        text = "10.10.14.4"
+        x = 28.0
+        y = 38.5
+        color = "#313739"
+    [[NOTE 5]]
+        text = "10.10.13.3"
+        x = -122.0
+        y = 36.5
+        color = "#313739"
+    [[NOTE 6]]
+        text = "10.10.12.2"
+        x = -274.0
+        y = 38.5
+        color = "#313739"
+    [[NOTE 7]]
+        text = "10.10.{12,13,14}.1"
+        x = 23.0
+        y = -178.5
+        color = "#313739"
+    [[NOTE 8]]
+        text = "point to multi point frame relay\nEigrp routing"
+        x = -455.0
+        y = -130.5
+        color = "#313739"
