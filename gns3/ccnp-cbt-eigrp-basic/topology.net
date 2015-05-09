@@ -1,0 +1,173 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[3725]]
+        image = /mnt/hdd/sda6/Learning/Materials/Cisco/IOS/c3725-advipservicesk9-mz.124-23_[freevideotraining.net].image
+        idlepc = 0x60a821c0
+        sparsemem = True
+        ghostios = True
+    [[ETHSW SW1]]
+        1 = access 1 R2 f0/0
+        2 = access 1 R3 f0/0
+        x = 19.5
+        y = 68.0
+        z = 1.0
+    [[ETHSW SW2]]
+        1 = access 1 R2 f0/1
+        x = 102.5
+        y = -159.0
+        z = 1.0
+    [[ROUTER BB]]
+        model = 3725
+        console = 2105
+        aux = 2505
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/0
+        s0/1 = R3 s0/0
+        cnfg = configs/BB.cfg
+        x = -434.0
+        y = -83.0
+        z = 1.0
+        hx = 19.5
+        hy = -23.0
+    [[ROUTER R2]]
+        model = 3725
+        console = 2106
+        aux = 2506
+        wic0/0 = WIC-2T
+        s0/0 = BB s0/0
+        f0/0 = SW1 1
+        f0/1 = SW2 1
+        cnfg = configs/R2.cfg
+        x = -61.0
+        y = -93.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3725
+        console = 2107
+        aux = 2507
+        wic0/0 = WIC-2T
+        s0/0 = BB s0/1
+        f0/0 = SW1 2
+        cnfg = configs/R3.cfg
+        x = -95.0
+        y = 140.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10101
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[NOTE 1]]
+        text = "256 kbps"
+        x = -230.0
+        y = 47.5
+        color = "#313739"
+    [[NOTE 2]]
+        text = "128 kbps"
+        x = -231.0
+        y = -53.5
+        color = "#313739"
+    [[NOTE 3]]
+        text = "10.1.25.2/24"
+        x = 11.0
+        y = -100.5
+        color = "#313739"
+    [[NOTE 4]]
+        text = "10.1.2.3/24"
+        x = -28.0
+        y = 127.5
+        color = "#313739"
+    [[NOTE 5]]
+        text = "10.1.2.2/24"
+        x = -9.0
+        y = -50.5
+        color = "#313739"
+    [[NOTE 6]]
+        text = "10.1.34.2/30"
+        x = -198.0
+        y = 135.5
+        color = "#313739"
+    [[NOTE 7]]
+        text = "10.1.34.1/30"
+        x = -431.0
+        y = -23.5
+        color = "#313739"
+    [[NOTE 8]]
+        text = "10.1.24.2/30"
+        x = -167.0
+        y = -87.5
+        color = "#313739"
+    [[NOTE 9]]
+        text = "10.1.24.1/30"
+        x = -370.0
+        y = -91.5
+        color = "#313739"
+    [[NOTE 10]]
+        text = "172.30.0.0/24\n172.30.1.0/24\n172.30.2.0/24\n172.30.3.0/24\n172.30.4.0/24\n172.30.5.0/24\n172.30.6.0/24\n172.30.7.0/24\n172.30.8.0/24\n172.30.9.0/24"
+        x = -556.0
+        y = -172.5
+        color = "#313739"
+    [[NOTE 11]]
+        text = "1"
+        x = -1.19684620899
+        y = 31.9167043798
+        interface = SW2 1
+        color = "#313739"
+    [[NOTE 12]]
+        text = "2"
+        x = 2.21798822649
+        y = 38.188007849
+        interface = SW1 2
+        color = "#313739"
+    [[NOTE 13]]
+        text = "1"
+        x = 16.6174569979
+        y = -19.2625803051
+        interface = SW1 1
+        color = "#313739"
+    [[NOTE 14]]
+        text = "s0/0"
+        x = -1.48511344324
+        y = 1.7323669165
+        interface = R3 s0/0
+        color = "#313739"
+    [[NOTE 15]]
+        text = "f0/0"
+        x = 66.2820117735
+        y = -0.188007849009
+        interface = R3 f0/0
+        color = "#313739"
+    [[NOTE 16]]
+        text = "s0/0"
+        x = -35.8608522733
+        y = 31.3335350672
+        interface = R2 s0/0
+        color = "#313739"
+    [[NOTE 17]]
+        text = "f0/0"
+        x = 51.8825430021
+        y = 57.2625803051
+        interface = R2 f0/0
+        color = "#313739"
+    [[NOTE 18]]
+        text = "f0/1"
+        x = 69.696846209
+        y = 6.0832956202
+        interface = R2 f0/1
+        color = "#313739"
+    [[NOTE 19]]
+        text = "s0/1"
+        x = 67.4851134432
+        y = 42.2676330835
+        interface = BB s0/1
+        color = "#313739"
+    [[NOTE 20]]
+        text = "s0/0"
+        x = 72.8608522733
+        y = 18.6664649328
+        interface = BB s0/0
+        color = "#313739"
